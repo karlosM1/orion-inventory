@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { DataTable } from "@/features/payments/data-table";
+import { data } from "@/features/types/payment";
+import { columns } from "@/features/payments/columns";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -7,7 +10,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="p-2">
-      <h3>Welcome Home!</h3>
+      <DataTable columns={columns} data={data} />
     </div>
   );
 }
