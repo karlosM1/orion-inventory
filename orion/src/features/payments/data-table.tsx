@@ -81,7 +81,6 @@ export function DataTable<TData, TValue>({
     }
   };
 
-  // Handle branch filter change - filters rows based on low stock in specific branch
   const handleBranchChange = (value: string) => {
     setBranchFilter(value);
     if (value === "all") {
@@ -98,7 +97,6 @@ export function DataTable<TData, TValue>({
         ),
       );
     } else {
-      // Show only rows where the selected branch has low stock (< 50)
       const branchColumn = table.getColumn(value);
       if (branchColumn) {
         branchColumn.setFilterValue((value: number) => value < 50);
@@ -131,7 +129,6 @@ export function DataTable<TData, TValue>({
           </div>
         </div>
 
-        {/* Filters and Search Bar */}
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-1 items-center gap-2">
             <div className="relative flex-1 max-w-sm">
@@ -299,7 +296,6 @@ export function DataTable<TData, TValue>({
         </div>
       </div>
 
-      {/* Table Section */}
       <div className="rounded-lg border bg-card shadow-sm">
         <Table>
           <TableHeader>
@@ -362,7 +358,6 @@ export function DataTable<TData, TValue>({
         </Table>
       </div>
 
-      {/* Footer Section */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="text-sm text-muted-foreground">
           {selectedRowCount > 0 ? (
